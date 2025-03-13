@@ -1,10 +1,20 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import './index.css'
-import App from './App.tsx'
+import ReactDOM from "react-dom/client";
+import "./index.scss";
+import App from "./App";
+import { Provider } from "react-redux";
+import { BrowserRouter } from "react-router-dom";
+import { WebSocketProvider } from "./services/WebSocket.tsx";
+import store from "./services/redux/store";
 
-createRoot(document.getElementById('root')!).render(
-  <StrictMode>
-    <App />
-  </StrictMode>,
-)
+const root = ReactDOM.createRoot(
+  document.getElementById("root") as HTMLElement
+);
+root.render(
+  <Provider store={store}>
+    <BrowserRouter>
+      <WebSocketProvider>
+        <App />
+      </WebSocketProvider>
+    </BrowserRouter>
+  </Provider>
+);

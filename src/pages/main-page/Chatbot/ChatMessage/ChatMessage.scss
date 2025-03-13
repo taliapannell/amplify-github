@@ -1,0 +1,138 @@
+@import "../../../../index.scss";
+
+.ai-response {
+	display: flex;
+	flex-direction: row;
+	align-items: flex-start;
+	justify-content: flex-start;
+	gap: 8px;
+}
+
+.ai-profile-container {
+	display: flex;
+	margin-right: 8px;
+}
+
+.ai-response-content {
+	height: auto;
+	width: auto;
+	flex-shrink: 0;
+	flex-grow: 1;
+	padding: 16px 16px 16px 16px;
+	border-radius: 0px 8px 8px 8px;
+	border: 1px solid #e6e9f1;
+	background: $secondary-color;
+	color: $text-color;
+	text-align: center;
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 24px; /* 87.5% */
+	letter-spacing: 0.48px;
+	text-align: left;
+
+	p {
+		white-space: pre-wrap;
+	}
+}
+
+.ai-response-container {
+	justify-content: flex-start;
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	max-width: 60%;
+	height: 100%;
+}
+
+.ai-response-actions-container {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+}
+
+.user-response {
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-end;
+	align-items: flex-start;
+}
+
+.user-response-container {
+	margin-right: 16px;
+	justify-content: flex-start;
+	display: flex;
+	flex-direction: column;
+	flex-shrink: 0;
+	max-width: 60%;
+}
+
+.user-response-content {
+	padding: 16px 16px 16px 16px;
+	gap: 10px;
+	border-radius: 8px 0px 8px 8px;
+	border: 1px solid #e3e3e3;
+	color: $text-color;
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 500;
+	letter-spacing: 0.48px;
+	min-height: 58px;
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	align-items: center; 
+}
+
+.user-response-content p,
+.ai-response-content p {
+	margin: 0;
+}
+
+.user-response-time {
+	padding-right: 5px;
+	color: $text-time-color;
+	text-align: right;
+	font-weight: 500;
+	font-size: 12px !important;
+	line-height: 14px; /* 116.667% */
+	letter-spacing: 0.36px;
+	text-transform: capitalize;
+}
+
+.ai-response-time p,
+.user-response-time p {
+	margin-top: 10px;
+}
+
+.user-buffer {
+	flex-shrink: 1;
+	flex-basis: 40%;
+	flex-grow: 1;
+}
+
+.user-profile-container {
+	display: flex;
+	position: relative;
+	justify-content: center;
+	align-items: center;
+
+	h3 {
+		position: absolute;
+		left: 15px;
+		top: 2px;
+		text-align: center;
+		font-size: 14px;
+		font-style: normal;
+		font-weight: 700;
+		line-height: 14px; /* 100% */
+		letter-spacing: 0.42px;
+		text-transform: uppercase;
+		color: $secondary-color;
+	}
+}
+
+.download-button:hover, .share-button:hover {
+	cursor: pointer;
+	transform: scale(0.9);
+}

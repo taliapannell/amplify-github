@@ -1,0 +1,37 @@
+@import "../../index.scss";
+
+.form-control {
+	border: 1px solid #d6dae4;
+	height: 64px;
+	width: 100%;
+	resize: none;
+	padding: 20px 18px;
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: normal;
+	letter-spacing: 0.48px;
+	color: $text-color;
+	overflow: hidden;
+}
+
+.form-control:hover {
+	overflow-y: scroll;
+}
+
+.form-control:focus {
+	border-radius: 1px;
+	outline: 2px solid $primary-color;
+}
+
+.form-control::-webkit-scrollbar {
+	width: 8px;
+}
+.form-control::-webkit-scrollbar-thumb {
+	background: $primary-color;
+}
+
+.form-control::-webkit-scrollbar-track {
+	background: $secondary-color;
+	height: 8px;
+}
