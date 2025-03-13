@@ -1,0 +1,46 @@
+@use "ChatMessage.scss" as *;
+
+.ai-response-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.sent-to-agent {
+    display: flex;
+    align-items: center;
+}
+
+.sent-to-agent p {
+    margin-right: 10px; 
+}
+
+.vector-icon {
+    margin-left: 10px; 
+}
+
+.message-with-icon {
+    display: flex;
+    align-items: center;
+}
+
+.message-with-icon p {
+    margin-left: 10px;
+}
+
+.spinning-icon-container {
+    margin-left: 10px;
+}
+
+// .spinning-icon {
+//     margin-left: 10px; 
+// }
+
+// .spin-dot {
+//     animation: spin 1s linear infinite;
+// }
+
+// @keyframes spin {
+//     100% {
+//         transform: rotate(360deg);
+//     }
+// }

@@ -1,0 +1,5 @@
+<svg width="121" height="27" viewBox="0 0 121 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect x="0.5" y="0.5" width="120" height="26" rx="13" fill="#EBEFFF"/>
+  <rect x="0.5" y="0.5" width="120" height="26" rx="13" stroke="#006DC5"/>
+  <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="#006DC5" font-family="Arial" font-size="12" font-weight="bold">InProgress</text>
+</svg>

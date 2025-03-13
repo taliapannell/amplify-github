@@ -1,0 +1,55 @@
+.transactions-container {
+  overflow: hidden;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto; 
+  max-height: 100vh; 
+  justify-content: space-between;
+
+    .transaction-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; 
+  }
+    span {
+    font-weight: bold; 
+    color: #333; 
+    font-size: 15px; 
+  }
+
+  .sidebar-custom-table-2 {
+    width: 100%;
+    margin-top: 15px;
+    border: 1px solid #DFDFDF;
+    border-radius: 8px;
+    padding: 4px;
+
+    td {
+      padding: 4px;
+      color: black;
+    }
+
+    .label-cell {
+      font-weight: bold;
+      background-color: #ffffff;
+      position: relative;
+    }
+
+    .value-cell {
+      background-color: #fff;
+    }
+  }
+}
+
+.transaction-table {
+  width: 100%;
+}
+
+.label {
+  font-weight: bold;
+}
+
+.value {
+  font-weight: normal;
+}

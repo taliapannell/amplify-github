@@ -1,0 +1,28 @@
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .spin-dot {
+      animation: wave 1.5s linear infinite;
+    }
+    .spin-dot:nth-child(1) { animation-delay: 0s; }
+    .spin-dot:nth-child(2) { animation-delay: 0.15s; }
+    .spin-dot:nth-child(3) { animation-delay: 0.3s; }
+    .spin-dot:nth-child(4) { animation-delay: 0.45s; }
+    .spin-dot:nth-child(5) { animation-delay: 0.6s; }
+    .spin-dot:nth-child(6) { animation-delay: 0.75s; }
+    .spin-dot:nth-child(7) { animation-delay: 0.9s; }
+    .spin-dot:nth-child(8) { animation-delay: 1.05s; }
+    
+    @keyframes wave {
+      0%, 100% { opacity: 0.2; }
+      50% { opacity: 1; }
+    }
+  </style>
+  <circle class="spin-dot" cx="16" cy="3.2" r="3.2" fill="#0099D8"/>
+  <circle class="spin-dot" cx="25.051" cy="6.949" r="3.2" fill="#0099D8"/>
+  <circle class="spin-dot" cx="28.8" cy="16" r="3.2" fill="#0099D8"/>
+  <circle class="spin-dot" cx="25.0509" cy="25.051" r="3.2" fill="#0099D8"/>
+  <circle class="spin-dot" cx="16" cy="28.8" r="3.2" fill="#0099D8"/>
+  <circle class="spin-dot" cx="6.94898" cy="25.0509" r="3.2" fill="#0099D8"/>
+  <circle class="spin-dot" cx="3.20002" cy="16" r="3.2" fill="#0099D8"/>
+  <circle class="spin-dot" cx="6.949" cy="6.94897" r="3.2" fill="#0099D8"/>
+</svg>

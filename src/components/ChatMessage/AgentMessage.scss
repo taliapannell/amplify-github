@@ -1,0 +1,71 @@
+@use "../../index.scss" as i;
+
+.ai-response-time {
+  padding-left: 10px;
+}
+
+.ai-response-toolbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  color: i.$text-time-color;
+
+  text-align: left;
+  font-weight: 500;
+  font-size: 12px !important;
+  line-height: 14px; /* 116.667% */
+  letter-spacing: 0.36px;
+  text-transform: capitalize;
+}
+
+.ai-response-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px;
+}
+
+.ai-response-buttons button {
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+  cursor: pointer;
+  color: inherit;
+  font: inherit;
+  outline: inherit;
+}
+
+.ai-response-content {
+  overflow: hidden;
+  white-space: pre-wrap;
+
+  hr {
+    margin: 30px 0 20px;
+    border: 1px solid #E3E3E3;
+  }
+
+  // .source-page-container {
+  //   display: flex;
+  //   justify-content: flex-start;
+  //   gap: 30px;
+
+  //   .label {
+  //     font-size: 16px;
+  //     font-weight: 600;
+  //     text-align: left;
+  //     color: #0078CF;
+  //     margin-right: 10px;
+  //   }
+
+  //   .text {
+  //     font-size: 16px;
+  //     font-weight: 400;
+  //     text-align: left;
+  //     color: #828282;
+  //   }
+  }

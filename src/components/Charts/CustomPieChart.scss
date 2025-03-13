@@ -1,0 +1,33 @@
+@use "../../index.scss" as *;
+
+.custom-pie-chart {
+  background-color: #fff;
+  border-radius: 20px;
+  padding: 30px;
+  text-align: center;
+  height: calc(50% - 8px);
+  width: 100%;
+
+  @media (max-width: $medium-width) {
+    height: 400px;
+  }
+
+  .custom-pie-chart-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 20px;
+    
+    span {
+      font-family: var(--main-font-family);
+      font-weight: 500;
+      font-size: 20px;
+    }
+  }
+
+  .custom-pie-chart-container {
+    height: calc(100% - 48px);
+    width: 100%;
+  }
+}

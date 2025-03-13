@@ -1,20 +1,18 @@
-@import "./index.scss";
-
-$sidebar-width: 420px;
+@use "./index.scss" as *;
 
 .app {
-  background: linear-gradient(
-      25deg,
-      transparent -6%,
-      #828282 5%,
-      transparent 35%
-    ),
-    linear-gradient(108deg, #ffffff 1%, $theme-color 10.03%, #828282 98.86%);
-  margin: 0;
+  background-color: #0099D8;
+  height: calc(100vh - 95px);
+  overflow-y: auto;
 }
 
 .content-wrapper {
   max-width: 1920px;
-  padding: 0 20px;
+  padding: 0 50px;
   margin: auto;
+  height: 100%;
+  
+  @media (max-width: $medium-width) {
+    padding: 0 20px;
+  }
 }

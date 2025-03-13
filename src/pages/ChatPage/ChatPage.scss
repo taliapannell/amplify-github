@@ -1,0 +1,69 @@
+@use "sass:math";
+@use "../../index.scss" as *;
+
+$transition-duration: 0.2s;
+
+.chat-page {
+  height: $content-height;
+  align-content: center;
+}
+
+.chat-components-container {
+  display: inline-flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.chat-page-sidebar {
+  flex-shrink: 0;
+  transition: width $transition-duration ease-in-out, opacity 0.1s ease-in-out;
+  height: calc(100vh - 95px - 80px);
+  overflow: hidden;
+
+  display: flex;
+  flex-direction: row;
+
+  &.visible {
+    width: 600px;
+    opacity: 1;
+    transition: width $transition-duration ease-in-out, opacity 0.5s ease-in-out;
+  }
+
+  &.hidden {
+    width: 0;
+    opacity: 0;
+  }
+}
+
+.chat-page-divider {
+  width: 40px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+
+  .divider-icon {
+    transition: transform $transition-duration ease-in-out;
+
+    &.rotated {
+      transform: rotate(180deg);
+    }
+  }
+}
+
+.chat-page-chat {
+  height: calc($content-height - 80px);
+  border-radius: 16px;
+  background: $secondary-color;
+  flex-direction: column;
+  justify-content: space-around;
+  display: flex;
+  padding: 24px 24px 24px 24px;
+  gap: 24px;
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: auto;
+}

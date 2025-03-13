@@ -3,8 +3,7 @@ import "./index.scss";
 import App from "./App";
 import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
-import { WebSocketProvider } from "./services/WebSocket.tsx";
-import store from "./services/redux/store";
+import store from "./redux/store";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -12,9 +11,7 @@ const root = ReactDOM.createRoot(
 root.render(
   <Provider store={store}>
     <BrowserRouter>
-      <WebSocketProvider>
-        <App />
-      </WebSocketProvider>
+      <App />
     </BrowserRouter>
   </Provider>
 );

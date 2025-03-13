@@ -1,0 +1,36 @@
+.table-container {
+  background-color: #E5F5FB;
+  // margin-left: -130px;
+  width: 100%;
+  margin-bottom: 15px;
+  height: 230px;
+  overflow: hidden;
+  box-shadow: none;
+  padding: 10px;
+  border-radius: 10px;
+  position: relative;
+
+}
+
+.sidebar-custom-table {
+  margin-left: 10px;
+  width: 100%;
+  border-collapse: collapse;
+}
+.label-cell, .value-cell {
+  color: black; 
+}
+
+.label-cell {
+  font-weight: 700;
+  font-size: 14px;
+  border-bottom: none;
+  padding: 5px;
+}
+
+.value-cell {
+  font-size: 18px;
+  font-weight: 500;
+  border-bottom: none;
+  padding: 5px;
+}

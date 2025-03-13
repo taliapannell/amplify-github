@@ -1,11 +1,13 @@
 import * as React from 'react';
-import { signOut } from "aws-amplify/auth";
-import { useState } from 'react';
+import { Hub } from 'aws-amplify/utils';
+import { signOut, getCurrentUser } from "aws-amplify/auth";
+import { useEffect, useState } from 'react';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import AppBar from '@mui/material/AppBar';
 import Avatar from '@mui/material/Avatar';
 import Box from '@mui/material/Box';
-import CalstrsLogo from "../../assets/images/calstrs-logo.svg"
+import ConedIconBlue from "../../assets/images/coned-logo-blue.svg"
+// import ConedIconWhite from "../../assets/images/coned-logo-white.svg"
 import Container from '@mui/material/Container';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import IconButton from '@mui/material/IconButton';
@@ -13,15 +15,39 @@ import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-import FeedbackDialog from '../Dialogs/FeedbackDialog';
-import { useDispatch } from 'react-redux';
-import { AppDispatch } from '../../services/redux/store';
-import { updateSessionId } from '../../services/redux/app.slice';
+import UserIcon from '../../assets/images/user-icon.png'
 
-function HeaderBar({userName, isUserAuthenticated}) {
-  const dispatch = useDispatch<AppDispatch>();
-  const [anchorElUser, setAnchorElUser] = useState<null | HTMLElement>(null);
-  const [feedbackDialogOpen, setFeedbackDialogOpen] = useState(false);
+function HeaderBar() {
+  const appTitle = "Retail Choice Angel​";
+  const [isUserAuthenticated, setIsUserAuthenticated] = useState(false);
+  const [userName, setUserName] = useState("Chan, Jack");
+  const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
+
+  useEffect(() => {
+    Hub.listen("auth", ({ payload }) => {
+      const { event } = payload;
+      if (event === "signedIn") {
+        loadCurrentUser();
+      } if (event === "signedOut") {
+        setIsUserAuthenticated(false);
+        setAnchorElUser(null);
+      }
+    });
+
+    loadCurrentUser();
+  }, []);
+
+  const loadCurrentUser = async () => {
+    try {
+      const { signInDetails } = await getCurrentUser();
+      const loginId = signInDetails?.loginId;
+      const id = loginId?.substring(0, loginId?.indexOf("@")).split(".");
+      setUserName(`${id ? `${id[2] || id[1]}, ${id[0]}` : ""}`);
+      setIsUserAuthenticated(true);
+    } catch (error) {
+      console.log("Error loading current user: ", error);
+    }
+  };
 
   const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElUser(event.currentTarget);
@@ -31,26 +57,16 @@ function HeaderBar({userName, isUserAuthenticated}) {
     setAnchorElUser(null);
   };
 
-  const handleDialogClose = () => {
-    setFeedbackDialogOpen(false);
-    logout();
-  };
-
-  const handleLogout = () => {
-    setFeedbackDialogOpen(true);
-  };
-
-  const logout = async () => {
+  const handleLogout = async () => {
     try {
       await signOut();
-      dispatch(updateSessionId(null));
-      setAnchorElUser(null);
     } catch (error) {
       console.log("Error signing out: ", error);
     }
-  }
+  };
 
   return (
+    // <AppBar position="static" sx={isUserAuthenticated ? { backgroundColor: "#0099D8" } : { backgroundColor: "#FFF" }}>
     <AppBar position="static" sx={{ backgroundColor: "#FFF" }}>
       <Container
         sx={{
@@ -70,19 +86,20 @@ function HeaderBar({userName, isUserAuthenticated}) {
             alignItems: "center"
           }}>
           <Box sx={{ display: "flex", alignItems: "center", gap: "10px" }}>
-            <img src={CalstrsLogo} alt="conEdison" />
+            {/* <img src={isUserAuthenticated ? ConedIconWhite : ConedIconBlue} alt="conEdison" /> */}
+            <img src={ConedIconBlue} alt="conEdison" />
             <span style={{ display: "inline-block", height: "24px", borderLeft: "1px solid #EAEDF1" }}></span>
             <Typography
               variant="h6"
               noWrap
               component="a"
               sx={{
-                ...(isUserAuthenticated && {
-                  color: "#000"
-                }),
-                ...(!isUserAuthenticated && {
-                  color: "#000"
-                }),
+                // ...(isUserAuthenticated && {
+                //   color: "#fff"
+                // }),
+                // ...(!isUserAuthenticated && {
+                  color: "#000",
+                // }),
                 display: { xs: 'none', md: 'flex' },
                 fontFamily: 'var(--main-font-family)',
                 fontWeight: 600,
@@ -91,7 +108,7 @@ function HeaderBar({userName, isUserAuthenticated}) {
                 lineHeight: "29px"
               }}
             >
-              CalSTRS Prototype Chatbot
+              {appTitle}
             </Typography>
           </Box>
 
@@ -104,8 +121,8 @@ function HeaderBar({userName, isUserAuthenticated}) {
                   display: "none"
                 })
               }}>
-              <Avatar>
-                <AccountCircleIcon fontSize="large" />
+              <Avatar 
+              src={UserIcon}> {!UserIcon && <AccountCircleIcon fontSize="large" />}
               </Avatar>
               <Typography
                 sx={{
@@ -119,7 +136,7 @@ function HeaderBar({userName, isUserAuthenticated}) {
                 {userName}
               </Typography>
               <ExpandMoreIcon sx={{
-                color: "#000",
+                color: "#fff",
                 fontWeight: 600,
                 fontSize: "30px",
                 marginLeft: "15px"
@@ -148,11 +165,6 @@ function HeaderBar({userName, isUserAuthenticated}) {
           </Box>
         </Toolbar>
       </Container>
-      <FeedbackDialog
-        open={feedbackDialogOpen}
-        setOpen={setFeedbackDialogOpen}
-        onClose={handleDialogClose}
-      />
     </AppBar>
   );
 }

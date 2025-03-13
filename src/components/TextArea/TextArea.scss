@@ -1,4 +1,4 @@
-@import "../../index.scss";
+@use "../../index.scss" as i;
 
 .form-control {
 	border: 1px solid #d6dae4;
@@ -11,7 +11,7 @@
 	font-weight: 400;
 	line-height: normal;
 	letter-spacing: 0.48px;
-	color: $text-color;
+	color: i.$text-color;
 	overflow: hidden;
 }
 
@@ -20,18 +20,18 @@
 }
 
 .form-control:focus {
-	border-radius: 1px;
-	outline: 2px solid $primary-color;
+	// border-radius: 1px;
+	outline: 2px solid #0078Cf;
 }
 
 .form-control::-webkit-scrollbar {
 	width: 8px;
 }
 .form-control::-webkit-scrollbar-thumb {
-	background: $primary-color;
+	background: i.$primary-color;
 }
 
 .form-control::-webkit-scrollbar-track {
-	background: $secondary-color;
+	background: i.$secondary-color;
 	height: 8px;
 }

@@ -1,0 +1,89 @@
+.custom-table {
+    width: 100%;
+    max-width: 1200px;
+    height: auto;
+    border-radius: 16px;
+    background-color: #fff;
+    padding: 2vw;
+    max-height: 80vh;
+    overflow-y: auto;
+    overflow-x: auto;
+
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+
+    .custom-table-header {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1rem;
+        flex-wrap: wrap;
+
+        span {
+            font-weight: 500;
+            font-size: clamp(16px, 1vw, 20px);
+        }
+    }
+
+    .table-header, .table-content, .table-customer-id {
+        font-size: clamp(14px, 0.8vw, 16px);
+    }
+
+    .table-customer-id {
+        color: #006DC5;
+        cursor: pointer;
+        font-weight: 500;
+    }
+}
+
+@media (max-width: 1280px) {
+    .custom-table {
+        max-width: 95%;
+        padding: 1.5vw;
+    }
+
+    .custom-table-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+@media (max-width: 768px) {
+    .custom-table {
+        max-width: 98%;
+        padding: 1rem;
+        gap: 1rem;
+    }
+
+    .custom-table-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+
+    .custom-table-header span {
+        font-size: 16px;
+    }
+
+    .table-header, .table-content, .table-customer-id {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .custom-table {
+        padding: 0.8rem;
+        gap: 0.5rem;
+        max-width: 100%;
+    }
+
+    .custom-table-header {
+        gap: 0.3rem;
+    }
+
+    .table-header, .table-content, .table-customer-id {
+        font-size: 13px;
+    }
+}

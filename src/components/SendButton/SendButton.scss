@@ -1,0 +1,32 @@
+@use "../../index.scss" as i;
+$button-background: #0078CF ;
+$button-hover-background: #0099D8;
+$button-active-background: #0099D8  ;
+
+.button {
+	display: flex;
+	padding: 16px 24px;
+	height: 64px;
+	align-items: center;
+	gap: 8px;
+	background: $button-background;
+	border: none;
+}
+
+.button:hover {
+	background: $button-hover-background;
+}
+
+.button:active {
+	background: $button-active-background;
+}
+
+.button-text {
+	font-size: 18px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: 14px; /* 77.778% */
+	text-transform: capitalize;
+	text-align: center;
+	color: i.$secondary-color;
+}

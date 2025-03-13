@@ -1,7 +1,7 @@
 import React, { forwardRef } from "react";
 import Form from "react-bootstrap/Form";
 import "./TextArea.scss";
-import { TextAreaProps } from "../../types/props/TextAreaProps";
+import { TextAreaProps } from "../../interfaces/TextAreaProps";
 
 const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>((
 	{
